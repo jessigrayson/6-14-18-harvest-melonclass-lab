@@ -63,17 +63,21 @@ def make_melon_types():
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
 
-    for melon in melon_types:
-        print("{} pairs with ".format(melon.name.capitalize()))
-        for i in range(len(melon.pairings)):
-            print("- {}".format(melon.pairings[i]))
+    for melon_type in melon_types:
+        print("{} pairs with ".format(melon_type.name.capitalize()))
+        for pairing in melon_type.pairings:
+            print("- {}".format(pairing))
 
     # Fill in the rest
 
 def make_melon_type_lookup(melon_types):
     """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
 
-    # Fill in the rest
+    melon_dict = {}
+
+    for melon_type in melon_types:
+        melon_dict[melon.code] = melon_type
+    return melon_dict
 
 ############
 # Part 2   #
@@ -82,19 +86,35 @@ def make_melon_type_lookup(melon_types):
 class Melon(object):
     """A melon in a melon harvest."""
 
-    # Fill in the rest
-    # Needs __init__ and is_sellable methods
+    def __init__(self, code, shape_rating, color_rating, field_three, harvester):
+        super().__init__()
+        self.shape_rating = shape_rating
+        self.color_rating = color_rating
+        self.field_three = field_three
+        self.harvester = harvester
+
+    def is_sellable(self, shape_rating, color_rating, field_three):
+
+        if shape_rating > 5 and color_rating > 5 and not field_three:
+            return True
+
 
 def make_melons(melon_types):
     """Returns a list of Melon objects."""
 
-    # Fill in the rest
+    melon_objects = []
+
+    melon1 = Melon()
+    return melon_objects
 
 def get_sellability_report(melons):
     """Given a list of melon object, prints whether each one is sellable."""
 
-    # Fill in the rest 
+    for melon_object in melon_objects:
+        if melon_object.is_sellable():
+            print(melon_object "- )
 
 
-melon_list = make_melon_types()
-print(print_pairing_info(melon_list))
+# melon_list = make_melon_types()
+
+# print(make_melon_type_lookup(melon_list))
